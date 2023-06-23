@@ -188,4 +188,5 @@ footer {
 
 footer img {
   width: 100px;
+  transform: translateY(-50%);
 }
