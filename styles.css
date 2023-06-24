@@ -17,17 +17,20 @@
 
 .light {
   --text-color: black;
+  --background-color: white;
   --bg-url: url(./assets/bg-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.7);
+  --surface-color: rgba(255, 255, 255, 0.5);
   --surface-color-hover: rgba(255, 255, 255, 0.9);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
-  background: var(--bg-url) no-repeat top center / cover;
+  background: var(--bg-url);
+  position: relative;
   height: 100vh;
+  overflow: hidden;
 }
 
 body * {
@@ -141,6 +144,8 @@ ul li a:hover {
 #description {
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
+  position: relative;
+  z-index: 1;
   border-radius: 8px;
   padding: 20px;
 }
@@ -167,6 +172,8 @@ ul li a:hover {
 #social-links {
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 
   padding: 24px 0;
 
@@ -187,6 +194,36 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
+.waves {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 50px;
+  left: 0;
+  right: 0;
+}
+
+.wave-1 {
+  animation: movewave1 3s ease-in-out infinite alternate;
+}
+
+@keyframes movewave1 {
+  from {
+    transform: translateX(50px);
+  }
+}
+.wave-2 {
+  animation: movewave2 3s 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes movewave2 {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(30px);
+  }
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -195,7 +232,8 @@ footer {
 
 footer img {
   width: 100px;
-  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1;
 }
 
 /* media queries */
